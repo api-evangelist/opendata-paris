@@ -1,23 +1,81 @@
 aid: opendata-paris
+
 name: Paris Open Data
-description: 'Paris Open Data is a company surfaced via the API Evangelist harvest backlog (source: data)
-  and added to the network as a stub for full-pipeline profiling.'
+
+description: Paris Open Data provides open public data from the City of Paris, offering datasets across themes such as administration, finance,
+  culture, environment, mobility, and urban planning. The portal enables search, download, and reuse of data for citizens, developers, and researchers,
+  fostering transparency and innovation.
+
 url: https://raw.githubusercontent.com/api-evangelist/opendata-paris/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:data
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-21 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-09-21'
+
 modified: '2026-09-21'
+
 tags:
 - Company
-apis: []
+- OpenData
+- Government
+- Transparency
+- Paris
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Security
+  url: security/opendata-paris-vulnerability-disclosure.yml
+- type: SecurityTxt
+  url: well-known/opendata-paris-security.txt
+- type: WellKnown
+  url: well-known/opendata-paris-well-known.yml
+- type: VulnerabilityDisclosure
+  url: security/opendata-paris-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/opendata-paris-domain-security.yml
 - type: Website
   url: https://opendata.paris.fr/
+- type: Documentation
+  url: https://opendata.paris.fr/api-console/explore/v2.1/
+- type: APIReference
+  url: https://opendata.paris.fr/api/explore/v2.1/swagger.json
+- type: GettingStarted
+  url: https://opendata.paris.fr/pages/home/
+- type: TermsOfService
+  url: https://opendata.paris.fr/terms/terms-and-conditions/
+- type: PrivacyPolicy
+  url: https://opendata.paris.fr/terms/privacy-policy/
+
+apis:
+- name: Open Data API
+  description: Provides access to Paris open data sets via the API console.
+  humanURL: https://opendata.paris.fr/api-console/explore/v2.1/
+  baseURL: null
+  aid: opendata-paris:open-data-api
+
+x-coverage:
+  state: unreadable
+  reason: no-machine-readable-spec
+  detail: API documentation provides only a Swagger UI without a downloadable OpenAPI spec.
+  evidence:
+  - url: https://opendata.paris.fr/api/explore/v2.1/swagger.json
+    status: 404
+  checked: 2026-09-21
+x-enrichment:
+  date: '2026-09-21'
+  status: enriched
+  artifacts_added: 6
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local
